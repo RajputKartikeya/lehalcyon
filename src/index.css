@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @layer base {
+    :root {
+      /* Soft Sky Blue */
+      --background: 210 50% 98%;
+      --foreground: 210 40% 20%;
+
+      /* Earthy Taupe */
+      --card: 30 20% 95%;
+      --card-foreground: 30 20% 20%;
+
+      /* Serene Green */
+      --primary: 150 30% 60%;
+      --primary-foreground: 150 40% 20%;
+
+      /* Warm Gold */
+      --secondary: 45 70% 75%;
+      --secondary-foreground: 45 80% 20%;
+
+      /* Misty Gray */
+      --muted: 210 20% 80%;
+      --muted-foreground: 210 30% 40%;
+
+      /* Sunset Orange */
+      --accent: 20 80% 85%;
+      --accent-foreground: 20 80% 20%;
+
+      /* Lavender Mist */
+      --popover: 260 40% 95%;
+      --popover-foreground: 260 40% 20%;
+
+      /* Deep Pine */
+      --destructive: 160 50% 40%;
+      --destructive-foreground: 160 40% 90%;
+
+      /* Subtle borders and rings */
+      --border: 210 20% 80%;
+      --input: 210 20% 80%;
+      --ring: 210 30% 70%;
+
+      --radius: 0.5rem;
+    }
+
+    .dark {
+      /* Deep Night Blue */
+      --background: 220 40% 15%;
+      --foreground: 210 40% 98%;
+
+      /* Rich Mahogany */
+      --card: 10 30% 25%;
+      --card-foreground: 10 30% 90%;
+
+      /* Moonlit Sage */
+      --primary: 150 20% 40%;
+      --primary-foreground: 150 30% 90%;
+
+      /* Soft Amber */
+      --secondary: 45 40% 50%;
+      --secondary-foreground: 45 50% 90%;
+
+      /* Charcoal Mist */
+      --muted: 220 20% 30%;
+      --muted-foreground: 220 20% 70%;
+
+      /* Mellow Copper */
+      --accent: 20 50% 50%;
+      --accent-foreground: 20 50% 90%;
+
+      /* Twilight Purple */
+      --popover: 260 30% 25%;
+      --popover-foreground: 260 30% 90%;
+
+      /* Forest Shadow */
+      --destructive: 160 40% 30%;
+      --destructive-foreground: 160 40% 90%;
+
+      /* Subtle borders and rings for dark mode */
+      --border: 220 30% 30%;
+      --input: 220 30% 30%;
+      --ring: 220 40% 40%;
+    }
+  }
+}
