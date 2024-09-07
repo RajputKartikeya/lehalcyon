@@ -235,7 +235,7 @@ const Rooms: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          {amenities.map((amenity, index) => (
+          {amenities.map((amenity) => (
             <Card
               key={amenity.name}
               className="bg-primary/5 hover:bg-primary/10 transition-colors duration-300"
