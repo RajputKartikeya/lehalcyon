@@ -8,7 +8,7 @@ import Attractions from "./pages/Attractions";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Packages from "./pages/Packages";
-import Gallary from "./pages/Gallary";
+import Gallery from "./pages/Gallery";
 const App: React.FC = () => {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
@@ -19,7 +19,7 @@ const App: React.FC = () => {
             <Route path="/rooms" element={<Rooms />} />
             <Route path="/attractions" element={<Attractions />} />
             <Route path="/packages" element={<Packages />} />
-            <Route path="/gallary" element={<Gallary />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
           </Routes>

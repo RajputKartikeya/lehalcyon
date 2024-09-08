@@ -3,16 +3,18 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useTheme } from "@/components/theme-provider";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
 
   const menuItems = [
     "Rooms",
     "Attractions",
     "Packages",
-    "Gallary",
+    "Gallery",
     "Contact",
     "About",
   ];
@@ -51,7 +53,11 @@ const Navbar: React.FC = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <img src="/logo.png" alt="logo" className="w-21 h-10" />
+                <img
+                  src={theme === "dark" ? "fullwhite.svg" : "fullblack.svg"}
+                  alt="Home"
+                  className="h-10 w-18"
+                />
               </motion.span>
             </Link>
             <div className="flex items-center space-x-4">
@@ -108,7 +114,21 @@ const Navbar: React.FC = () => {
             className="fixed inset-0 bg-background/95 backdrop-blur-md z-50 md:hidden"
           >
             <div className="flex flex-col h-full p-6">
-              <div className="flex justify-end">
+              <div className="flex justify-between items-center mb-8">
+                <Link
+                  to="/"
+                  className="flex items-center"
+                  onClick={() => {
+                    toggleMenu();
+                    scrollToTop();
+                  }}
+                >
+                  <img
+                    src={theme === "dark" ? "white.svg" : "black.svg"}
+                    alt="Home"
+                    className="h-12 w-18"
+                  />
+                </Link>
                 <Button variant="ghost" size="icon" onClick={toggleMenu}>
                   <X className="h-6 w-6" />
                 </Button>
