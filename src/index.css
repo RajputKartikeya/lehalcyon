@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .react-datepicker-wrapper,
 .react-datepicker__input-container {
   display: block;
@@ -10,6 +11,7 @@
 .react-datepicker__input-container input {
   width: 100%;
 }
+
 @layer base {
   @layer base {
     :root {
