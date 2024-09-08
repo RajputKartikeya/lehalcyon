@@ -4,7 +4,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Facebook,
+  Instagram,
+  Twitter,
+  Globe,
+  MessageCircle,
+} from "lucide-react";
 
 const Contact: React.FC = () => {
   // Replace with your actual Google Maps embed URL
@@ -25,6 +35,18 @@ const Contact: React.FC = () => {
     )}`;
     window.location.href = mailtoLink;
   };
+
+  const socialButtons = [
+    { icon: Globe, label: "Google Page", link: "https://www.google.com" },
+    { icon: Instagram, label: "Instagram", link: "https://www.instagram.com" },
+    { icon: Facebook, label: "Facebook", link: "https://www.facebook.com" },
+    { icon: Twitter, label: "Twitter", link: "https://www.twitter.com" },
+    {
+      icon: MessageCircle,
+      label: "WhatsApp",
+      link: "https://wa.me/yourphonenumber",
+    },
+  ];
 
   return (
     <div className="bg-background min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8">
@@ -56,7 +78,7 @@ const Contact: React.FC = () => {
             <Card>
               <CardContent className="p-6">
                 <h2 className="text-2xl font-semibold mb-4">Our Location</h2>
-                <div className="aspect-video">
+                <div className="aspect-video mb-6">
                   <iframe
                     src={googleMapsEmbedUrl}
                     width="100%"
@@ -68,6 +90,21 @@ const Contact: React.FC = () => {
                   ></iframe>
                 </div>
               </CardContent>
+            </Card>
+            <Card className="mt-8 p-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {socialButtons.map((button, index) => (
+                  <Button
+                    key={index}
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => window.open(button.link, "_blank")}
+                  >
+                    <button.icon className="mr-2 h-4 w-4" />
+                    {button.label}
+                  </Button>
+                ))}
+              </div>
             </Card>
           </motion.div>
 

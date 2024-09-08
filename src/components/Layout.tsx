@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
+import FloatingButtons from "./FloatingButtons";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -9,10 +11,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <Navbar />
-      <main className="flex-grow w-full">{children}</main>
-      <footer className="w-full py-4 text-center bg-background border-t border-border">
-        <p>&copy; 2024 Hotel Le Halcyon. All rights reserved.</p>
-      </footer>
+      <main className="flex-grow w-full relative">
+        <div className="w-full">{children}</div>
+        <div className="fixed bottom-4 right-4 z-50">
+          <FloatingButtons />
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 };
