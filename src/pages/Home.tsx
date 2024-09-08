@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Star,
   Utensils,
@@ -19,8 +17,8 @@ import {
   Users,
   Calendar,
   Smile,
-  CalendarDays,
 } from "lucide-react";
+import Reservation from "@/components/Reservation";
 
 const carouselImages = ["10.jpeg", "2.jpeg", "1.jpeg", "3.jpeg"];
 
@@ -82,68 +80,7 @@ const Home: React.FC = () => {
         </div>
       </section>
       {/* Floating Reservation Section */}
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-        className="relative z-10 mx-auto px-4 -mt-16 max-w-4xl"
-      >
-        <Card className="bg-background/95 backdrop-blur-sm shadow-lg rounded-xl overflow-hidden">
-          <CardContent className="p-6 sm:p-8">
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col sm:flex-row items-stretch sm:items-end gap-4"
-            >
-              <div className="flex-grow min-w-[200px]">
-                <Label
-                  htmlFor="check-in"
-                  className="mb-2 block text-sm font-medium"
-                >
-                  Check-in
-                </Label>
-                <div className="relative">
-                  <Input
-                    id="check-in"
-                    type="date"
-                    value={checkIn}
-                    onChange={(e) => setCheckIn(e.target.value)}
-                    className="pl-10 h-12 rounded-lg text-base placeholder-uppercase"
-                    placeholder="DD/MM/YYYY"
-                  />
-                  <CalendarDays className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary/60" />
-                </div>
-              </div>
-              <div className="flex-grow min-w-[200px]">
-                <Label
-                  htmlFor="check-out"
-                  className="mb-2 block text-sm font-medium"
-                >
-                  Check-out
-                </Label>
-                <div className="relative">
-                  <Input
-                    id="check-out"
-                    type="date"
-                    value={checkOut}
-                    onChange={(e) => setCheckOut(e.target.value)}
-                    className="pl-10 h-12 rounded-lg text-base placeholder-uppercase"
-                    placeholder="DD/MM/YYYY"
-                  />
-                  <CalendarDays className="absolute left-3 top-1/2 transform -translate-y-1/2 text-primary/60" />
-                </div>
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                className="flex-grow sm:flex-grow-0 h-12 rounded-lg text-base font-medium transition-all hover:scale-105"
-              >
-                Check Availability
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
-      </motion.div>
+      <Reservation />
       {/* Quick Info Section */}
       <section className="py-12 bg-secondary/10">
         <div className="container mx-auto px-4">
