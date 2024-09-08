@@ -32,9 +32,6 @@ const Home: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const [checkIn, setCheckIn] = useState("");
-  const [checkOut, setCheckOut] = useState("");
-
   return (
     <div className="w-full">
       {/* Hero Section with Carousel */}
