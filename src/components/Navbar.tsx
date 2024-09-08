@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const menuItems = [
     "Rooms",
@@ -18,6 +19,19 @@ const Navbar: React.FC = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // Function to scroll to top
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  // Use effect to scroll to top on route change
+  useEffect(() => {
+    scrollToTop();
+  }, [location.pathname]);
+
   return (
     <>
       <div className="w-full flex justify-center items-center fixed top-4 z-50">
@@ -28,7 +42,11 @@ const Navbar: React.FC = () => {
           transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
         >
           <div className="container flex h-16 items-center justify-between px-6">
-            <Link to="/" className="flex items-center space-x-2">
+            <Link
+              to="/"
+              className="flex items-center space-x-2"
+              onClick={scrollToTop}
+            >
               <motion.span
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -47,6 +65,7 @@ const Navbar: React.FC = () => {
                     <Link
                       to={`/${item.toLowerCase()}`}
                       className="px-3 py-2 text-sm font-medium rounded-full transition-colors hover:bg-primary/40"
+                      onClick={scrollToTop}
                     >
                       {item}
                     </Link>
@@ -59,6 +78,7 @@ const Navbar: React.FC = () => {
                   <Button
                     size="sm"
                     className="rounded-full hover:bg-slate-100 border-yellow-500"
+                    onClick={scrollToTop}
                   >
                     Book Now
                   </Button>
@@ -105,7 +125,10 @@ const Navbar: React.FC = () => {
                       <Button
                         size="lg"
                         className="rounded-full text-2xl font-medium"
-                        onClick={toggleMenu}
+                        onClick={() => {
+                          toggleMenu();
+                          scrollToTop();
+                        }}
                       >
                         {item}
                       </Button>
@@ -113,7 +136,10 @@ const Navbar: React.FC = () => {
                       <Link
                         to={`/${item.toLowerCase()}`}
                         className="text-2xl font-medium"
-                        onClick={toggleMenu}
+                        onClick={() => {
+                          toggleMenu();
+                          scrollToTop();
+                        }}
                       >
                         {item}
                       </Link>
