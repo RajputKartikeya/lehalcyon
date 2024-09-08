@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
               </motion.span>
             </Link>
             <div className="flex items-center space-x-4">
-              <div className="hidden md:flex space-x-1">
+              <div className="hidden md:flex items-center space-x-1">
                 {menuItems.map((item) => (
                   <motion.div
                     key={item}
@@ -52,18 +52,18 @@ const Navbar: React.FC = () => {
                     </Link>
                   </motion.div>
                 ))}
-              </div>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  size="sm"
-                  className="rounded-full hover:bg-slate-100 border-yellow-500"
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Book Now
-                </Button>
-              </motion.div>
+                  <Button
+                    size="sm"
+                    className="rounded-full hover:bg-slate-100 border-yellow-500"
+                  >
+                    Book Now
+                  </Button>
+                </motion.div>
+              </div>
               <Button
                 variant="outline"
                 size="icon"
@@ -94,31 +94,32 @@ const Navbar: React.FC = () => {
                 </Button>
               </div>
               <nav className="flex flex-col items-center justify-center flex-grow">
-                {menuItems.map((item) => (
+                {[...menuItems, "Book Now"].map((item) => (
                   <motion.div
                     key={item}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="my-2"
                   >
-                    <Link
-                      to={`/${item.toLowerCase()}`}
-                      className="text-2xl font-medium"
-                      onClick={toggleMenu}
-                    >
-                      {item}
-                    </Link>
+                    {item === "Book Now" ? (
+                      <Button
+                        size="lg"
+                        className="rounded-full text-2xl font-medium"
+                        onClick={toggleMenu}
+                      >
+                        {item}
+                      </Button>
+                    ) : (
+                      <Link
+                        to={`/${item.toLowerCase()}`}
+                        className="text-2xl font-medium"
+                        onClick={toggleMenu}
+                      >
+                        {item}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-6"
-                >
-                  <Button size="lg" className="rounded-full">
-                    Book Now
-                  </Button>
-                </motion.div>
               </nav>
             </div>
           </motion.div>

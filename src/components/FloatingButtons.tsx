@@ -7,7 +7,7 @@ const FloatingButtons: React.FC = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="fixed bottom-20 left-4 flex flex-col space-y-2 z-50">
+    <div className="fixed bottom-8 right-4 flex flex-col space-y-2 z-50">
       {" "}
       {/* Increased bottom spacing */}
       <Button
