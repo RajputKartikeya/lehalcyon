@@ -19,6 +19,7 @@ import {
   Smile,
 } from "lucide-react";
 import Reservation from "@/components/Reservation";
+import { CloudinaryImage } from "@/utils/cloudinaryImage";
 
 const carouselImages = ["10.jpeg", "2.jpeg", "1.jpeg", "3.jpeg"];
 
@@ -125,10 +126,11 @@ const Home: React.FC = () => {
               </Button>
             </div>
             <div>
-              <img
-                src="/api/placeholder/800/600?text=Hotel+Exterior"
+              <CloudinaryImage
+                imagePath="home/hotelext"
                 alt="Hotel Exterior"
-                className="rounded-lg shadow-lg"
+                className=" shadow-md hover:shadow-2xl transition-shadow duration-500"
+                priority={false}
               />
             </div>
           </div>
