@@ -1,13 +1,11 @@
 import { Cloudinary, Transformation } from "cloudinary-core";
 import { useState, useEffect } from "react";
 
-// Define our configuration interfaces
 interface CloudinaryConfig {
   cloud_name: string;
   secure: boolean;
 }
 
-// Define the component props interface with the correct transformation type
 interface CloudinaryImageProps {
   imagePath: string;
   alt: string;
@@ -15,7 +13,6 @@ interface CloudinaryImageProps {
   priority?: boolean;
   quality?: number;
   format?: string;
-  // Now using the correct Transformation type
   defaultTransformations?: Transformation.Options;
 }
 
@@ -33,7 +30,6 @@ const cloudinaryConfig: CloudinaryConfig = {
 
 const cloudinary = new Cloudinary(cloudinaryConfig);
 
-// Define default transformations using the correct type
 const DEFAULT_TRANSFORMATIONS: Transformation.Options = {
   fetch_format: "auto",
   quality: "auto",
@@ -51,23 +47,20 @@ export function CloudinaryImage({
   const [imageUrls, setImageUrls] = useState<ImageUrls | null>(null);
 
   useEffect(() => {
-    // Helper function that builds our transformation options
     const buildTransformation = (
       width: number,
       extraTransformations: Transformation.Options = {}
     ): Transformation.Options => {
-      // Combine all transformations while maintaining type safety
       return {
         ...defaultTransformations,
         width,
+        crop: "fill", // Add this to ensure images fill their container
         ...extraTransformations,
-        // Only add these if they're specified
         ...(quality && { quality }),
         ...(format && { fetch_format: format }),
       };
     };
 
-    // Generate our responsive image URLs using the transformation builder
     const urls: ImageUrls = {
       desktop: cloudinary.url(imagePath, {
         transformation: [buildTransformation(1920)],
@@ -76,7 +69,12 @@ export function CloudinaryImage({
         transformation: [buildTransformation(1024)],
       }),
       mobile: cloudinary.url(imagePath, {
-        transformation: [buildTransformation(640)],
+        transformation: [
+          buildTransformation(640, {
+            crop: "fill", // Ensure mobile images fill width
+            gravity: "center", // Center the crop
+          }),
+        ],
       }),
       placeholder: cloudinary.url(imagePath, {
         transformation: [
@@ -94,8 +92,8 @@ export function CloudinaryImage({
   if (!imageUrls) return null;
 
   return (
-    <div className={`${className}`}>
-      <picture>
+    <div className={`relative w-full h-full ${className}`}>
+      <picture className="w-full h-full">
         <source
           media="(min-width: 1024px)"
           srcSet={imageUrls.desktop}
@@ -110,7 +108,7 @@ export function CloudinaryImage({
           src={imageUrls.mobile}
           alt={alt}
           loading={priority ? "eager" : "lazy"}
-          className="rounded-lg w-full h-auto" // Add rounded-lg here
+          className="w-full h-full object-cover"
           style={{
             backgroundImage: `url(${imageUrls.placeholder})`,
             backgroundSize: "cover",

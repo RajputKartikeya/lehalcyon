@@ -21,7 +21,7 @@ import {
 import Reservation from "@/components/Reservation";
 import { CloudinaryImage } from "@/utils/cloudinaryImage";
 
-const carouselImages = ["10.jpeg", "2.jpeg", "1.jpeg", "3.jpeg"];
+const carouselImages = ["home/hero1", "home/hero2", "home/hero3", "home/hero4"];
 
 const Home: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -35,70 +35,90 @@ const Home: React.FC = () => {
 
   return (
     <div className="w-full">
-      {/* Hero Section with Carousel */}
-      <section className="relative h-[70vh] overflow-hidden">
-        <AnimatePresence initial={false}>
-          <motion.img
-            key={currentImage}
-            src={carouselImages[currentImage]}
-            alt={`Hotel feature ${currentImage + 1}`}
-            className="absolute inset-0 w-full h-full object-cover object-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          />
-        </AnimatePresence>
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
-
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white">
-            <motion.h1
-              className="text-4xl md:text-6xl font-bold mb-4"
-              initial={{ y: -50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-            >
-              Hotel Le Halcyon
-            </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl mb-8"
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-            >
-              Your Elegant Retreat in Kasauli
-            </motion.p>
+      <div className="relative">
+        {/* Hero Section */}
+        <section className="relative h-[70vh] overflow-hidden">
+          <AnimatePresence initial={false}>
             <motion.div
-              initial={{ scale: 0.5, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            ></motion.div>
+              key={currentImage}
+              className="absolute inset-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="relative w-full h-full">
+                <CloudinaryImage
+                  imagePath={carouselImages[currentImage]}
+                  alt={`Hotel feature ${currentImage + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  priority={true}
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="absolute inset-0 bg-black bg-opacity-40" />
+
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-center text-white">
+              <motion.h1
+                className="text-4xl md:text-6xl font-bold mb-4"
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                Hotel Le Halcyon
+              </motion.h1>
+              <motion.p
+                className="text-xl md:text-2xl mb-8"
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+              >
+                Your Elegant Retreat in Kasauli
+              </motion.p>
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              />
+            </div>
+          </div>
+        </section>
+        {/* Floating Reservation Section */}
+        <div className="z-10">
+          <div className="container mx-auto px-4">
+            <Reservation />
           </div>
         </div>
-      </section>
-      {/* Floating Reservation Section */}
-      <Reservation />
-      {/* Quick Info Section */}
-      <section className="py-12 bg-secondary/10">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {[
-              { icon: Mountain, text: "Stunning Terrace Views" },
-              { icon: LucideWaves, text: "Refreshing Pool" },
-              { icon: Utensils, text: "Multicuisine Restaurant" },
-              { icon: Car, text: "Ample Parking" },
-            ].map((item, index) => (
-              <Card key={index} className="bg-background/50 backdrop-blur-sm">
-                <CardContent className="flex items-center p-4">
-                  <item.icon className="h-8 w-8 mr-4 text-primary" />
-                  <span className="text-lg font-semibold">{item.text}</span>
-                </CardContent>
-              </Card>
-            ))}
+
+        {/* Quick Info Section */}
+        <section>
+          <div className="container mx-auto px-4">
+            <div className="pt-20">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                {[
+                  { icon: Mountain, text: "Stunning Terrace Views" },
+                  { icon: LucideWaves, text: "Refreshing Pool" },
+                  { icon: Utensils, text: "Multicuisine Restaurant" },
+                  { icon: Car, text: "Ample Parking" },
+                ].map((item, index) => (
+                  <Card
+                    key={index}
+                    className="bg-background/50 backdrop-blur-sm"
+                  >
+                    <CardContent className="flex items-center p-4">
+                      <item.icon className="h-8 w-8 mr-4 text-primary" />
+                      <span className="text-lg font-semibold">{item.text}</span>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       {/* About Section */}
       <section className="py-20 px-4 md:px-8 bg-background">
@@ -125,11 +145,11 @@ const Home: React.FC = () => {
                 Learn More About Us
               </Button>
             </div>
-            <div>
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg">
               <CloudinaryImage
                 imagePath="home/hotelext"
                 alt="Hotel Exterior"
-                className=" shadow-md hover:shadow-2xl transition-shadow duration-500"
+                className="absolute inset-0 w-full h-full object-cover transition-shadow duration-300 hover:shadow-2xl"
                 priority={false}
               />
             </div>
@@ -210,19 +230,19 @@ const Home: React.FC = () => {
             {[
               {
                 title: "Luxurious Rooms",
-                image: "/api/placeholder/600/400?text=Luxurious+Rooms",
+                imagePath: "home/spaceroom",
                 description:
                   "Spacious, cozy rooms with essential amenities and stunning alpine views",
               },
               {
                 title: "Gourmet Dining",
-                image: "/api/placeholder/600/400?text=Gourmet+Dining",
+                imagePath: "home/gourdining",
                 description:
                   "Savor delicious meals at our multi-cuisine restaurant",
               },
               {
                 title: "Perfect for Events",
-                image: "/api/placeholder/600/400?text=Event+Spaces",
+                imagePath: "home/event1",
                 description:
                   "Ideal for celebrations, from birthdays to New Year's parties",
               },
@@ -234,11 +254,14 @@ const Home: React.FC = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 * index, duration: 0.5 }}
               >
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full h-48 object-cover"
-                />
+                <div className="relative aspect-[16/9] w-full">
+                  <CloudinaryImage
+                    imagePath={feature.imagePath}
+                    alt={feature.title}
+                    className="w-full h-48 object-cover shadow-md hover:shadow-2xl transition-shadow duration-500"
+                    priority={false}
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">
                     {feature.title}
@@ -286,12 +309,15 @@ const Home: React.FC = () => {
             Ideal Location for Your Mountain Getaway
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <img
-                src="/api/placeholder/800/600?text=Hotel+Location"
-                alt="Hotel Location"
-                className="rounded-lg shadow-lg"
-              />
+            <div className="w-full h-[400px] rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27389.680700077115!2d77.04062936647762!3d30.894770209960516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f87e54f998cbb%3A0xb7644bf74c6b8c81!2sHotel%20Le%20Halcyon!5e0!3m2!1sen!2sin!4v1733062579932!5m2!1sen!2sin"
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Hotel Le Halcyon Location"
+                allowFullScreen
+              ></iframe>
             </div>
             <div>
               <ul className="space-y-4">
@@ -327,69 +353,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* TripAdvisor Reviews Section */}
-      <section className="py-20 px-4 md:px-8 bg-gradient-to-r from-primary/10 to-secondary/10">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            What Our Guests Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "John D.",
-                rating: 5,
-                comment:
-                  "Incredible value for money. The views are unbeatable and the staff is exceptionally friendly!",
-              },
-              {
-                name: "Sarah L.",
-                rating: 5,
-                comment:
-                  "The restaurant served some of the best food I've had. The rooms are spacious and comfortable. Highly recommend!",
-              },
-              {
-                name: "Mike R.",
-                rating: 5,
-                comment:
-                  "Great amenities and friendly staff. The location is perfect for a peaceful getaway. Will definitely return!",
-              },
-            ].map((review, index) => (
-              <Card key={index} className="bg-background/80 backdrop-blur-sm">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    {[...Array(review.rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-5 w-5 text-yellow-400 fill-current"
-                      />
-                    ))}
-                  </div>
-                  <p className="mb-4 italic">"{review.comment}"</p>
-                  <p className="text-sm text-muted-foreground">
-                    - {review.name}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <a
-              href="https://www.tripadvisor.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-primary hover:underline"
-            >
-              <img
-                src="/api/placeholder/24/24?text=TA"
-                alt="TripAdvisor logo"
-                className="mr-2 h-6 w-6"
-              />
-              Read more reviews on TripAdvisor
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Nature Walk Section */}
       <section className="py-20 px-4 md:px-8 bg-background">
         <div className="max-w-7xl mx-auto">
@@ -397,11 +360,12 @@ const Home: React.FC = () => {
             Explore Nature's Beauty
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
-              <img
-                src="/api/placeholder/800/600?text=Nature+Walk"
+            <div className="relative aspect-[16/9] w-full rounded-lg overflow-hidden">
+              <CloudinaryImage
+                imagePath="home/nature"
                 alt="Nature Walk"
-                className="rounded-lg shadow-lg"
+                className="absolute inset-0 w-full h-full object-cover shadow-lg"
+                priority={false}
               />
             </div>
             <div>
@@ -423,22 +387,27 @@ const Home: React.FC = () => {
 
       {/* Call to Action Section */}
       <motion.section
-        className="relative py-20"
+        className="relative py-20 overflow-hidden min-h-[60vh]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <img
-          src="/api/placeholder/1920/1080?text=Hotel+Exterior"
-          alt="Hotel exterior with mountain backdrop"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-60" />
-        <div className="relative z-10 text-center text-white container mx-auto px-4">
+        <div className="absolute inset-0 w-full h-full">
+          <CloudinaryImage
+            imagePath="home/mountaindrop"
+            alt="Hotel exterior with mountain backdrop"
+            className="w-full h-full object-cover object-center"
+            priority={false}
+          />
+        </div>
+
+        <div className="absolute inset-0 bg-black bg-opacity-60 z-[1]" />
+
+        <div className="relative z-10 text-center text-white container mx-auto px-4 flex flex-col items-center justify-center h-full">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Your Perfect Mountain Getaway Awaits
           </h2>
-          <p className="text-xl mb-8">
+          <p className="text-xl mb-8 max-w-3xl mx-auto">
             Experience comfort, luxury, and breathtaking views at Hotel Le
             Halcyon
           </p>
