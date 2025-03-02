@@ -24,7 +24,7 @@ const FloatingButtons: React.FC = () => {
         variant="outline"
         size="icon"
         className="rounded-full bg-background/60 backdrop-blur-sm"
-        onClick={() => window.open("https://wa.me/yourphonenumber", "_blank")}
+        onClick={() => window.open("https://wa.me/9667647948", "_blank")}
       >
         <MessageCircle className="h-[1.2rem] w-[1.2rem]" />
         <span className="sr-only">WhatsApp</span>

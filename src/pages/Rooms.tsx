@@ -322,7 +322,16 @@ const Rooms: React.FC = () => {
             in advance to secure your preferred dates and avoid any
             inconvenience during your vacation.
           </p>
-          <Button size="lg" className="text-lg px-8 py-6 rounded-full">
+          <Button
+            size="lg"
+            className="text-lg px-8 py-6 rounded-full"
+            onClick={() =>
+              window.open(
+                "https://bookings.asiatech.in/?page=4342&type=website",
+                "_blank"
+              )
+            }
+          >
             Check Availability
           </Button>
         </div>
