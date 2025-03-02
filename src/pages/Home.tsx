@@ -51,8 +51,9 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
 );
 const Home: React.FC = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  // Inside your Home component, add this state
-  const [testimonials, setTestimonials] = useState(initialTestimonials);
+
+  const [testimonials] = useState(initialTestimonials ?? []);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % carouselImages.length);
