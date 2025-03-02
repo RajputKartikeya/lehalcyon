@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-US" itemscope itemtype="https://schema.org/WebPage">
   <head>
+    <script>
+      // Immediately apply theme before React loads
+      (function () {
+        const storageKey = "vite-ui-theme";
+        const savedTheme = localStorage.getItem(storageKey);
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+          .matches
+          ? "dark"
+          : "light";
+
+        // Determine initial theme
+        const theme = savedTheme || "system";
+
+        // Apply class immediately
+        const root = document.documentElement;
+        root.classList.remove("light", "dark");
+
+        if (theme === "system") {
+          root.classList.add(systemTheme);
+        } else {
+          root.classList.add(theme);
+        }
+      })();
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
