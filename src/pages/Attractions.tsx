@@ -6,52 +6,76 @@ import { MapPin, Clock } from "lucide-react";
 
 const attractions = [
   {
-    name: "Scenic Mountain Trail",
+    name: "Dagshai Jail Museum",
     description:
-      "A beautiful hiking trail with panoramic views of the surrounding mountains.",
+      "The Dagshai Jail Museum or Dagshai Central Jail in India was built in 1847, a T-shaped building of local stone masonry with 54 tiny cells. Apart from the Cellular Jail in the Andamans, it is the only other Indian museum which once was a jail.",
     image: "/api/placeholder/800/500?text=Mountain+Trail",
-    distance: "2 km",
-    duration: "3-4 hours",
+    distance: "5 km",
+    duration: "30 minutes",
   },
   {
-    name: "Crystal Clear Lake",
+    name: "Barog Tunnel (Longest Tunnel of KSR Heritage Railway Section)",
     description:
-      "A serene lake perfect for boating, fishing, or just relaxing by the shore.",
+      "Barog tunnel is the longest of the 103 operational tunnels on the route of the UNESCO heritage Kalka-Shimla railway, which is 1143.61m long. Barog station is immediately after the tunnel. Trains take about 2.5 minutes to cross this tunnel, running at 25 kilometers per hour",
     image: "/api/placeholder/800/500?text=Crystal+Lake",
-    distance: "5 km",
+    distance: "7.5 km",
     duration: "Half day",
   },
   {
-    name: "Historic Town Center",
+    name: "Jatoli temple",
     description:
-      "Explore the charming streets and architecture of our historic town center.",
+      "Jatoli gets its name from the long Jata (hair) that Lord Shiva has. Considered as Asia's highest Shiv temple, this shrine is indeed an architectural marvel. There is a water tank called 'Jal Kund' which is considered as pious as the holy river Ganga. The water of this tank is said to have some medicinal qualities that can treat skin diseases. There is a cave inside the temple where Swami Krishnananda Paramhans Ji resided.",
     image: "/api/placeholder/800/500?text=Historic+Town",
-    distance: "1 km",
+    distance: "18 km",
     duration: "2-3 hours",
   },
   {
-    name: "Adventure Park",
+    name: "Shoolini Mata Temple, Solan",
     description:
-      "Thrilling rides and activities for all ages in a beautiful forest setting.",
+      "Maa Shoolini (Mahashakti), the form and formless, is the root of knowledge, wisdom, creation, preservation, and annihilation. She is Shakti or power of Lord Shiva. Maa Shoolini is also popularly known as Shoolani Durga, Shivani, and Saloni, often being compared to Goddesses such as Durga and Parvati.",
     image: "/api/placeholder/800/500?text=Adventure+Park",
-    distance: "10 km",
+    distance: "15 km",
     duration: "Full day",
   },
   {
-    name: "Local Winery Tour",
+    name: "Mohan Shakti National Heritage Park",
     description:
-      "Taste exquisite local wines and learn about the winemaking process.",
+      "Mohan Shakti National Heritage Park, also referred to as the Solan Heritage Park, is a modern-era Indian heritage complex in Harat, near Solan, Himachal Pradesh, India. It is about 40 kilometers south of Shimla, about 15 kilometers north of Solan, 25 Km from Hotel Le Halcyon, spread over 40 acres of land, it was founded by Kapil Mohan – a retired Brigadier General of the Indian Army, a Padma Shree awardee of India.",
     image: "/api/placeholder/800/500?text=Winery+Tour",
-    distance: "15 km",
+    distance: "25 km",
     duration: "3-4 hours",
   },
   {
-    name: "Sunset Viewpoint",
+    name: "Kasauli",
     description:
-      "The perfect spot to watch breathtaking sunsets over the valley.",
+      "Kasauli is a small hill town in the north Indian state of Himachal Pradesh. It’s home to gabled colonial-era houses, orchards, and green-roofed Christ Church, dating from the mid-19th century. At the southern edge of town, Monkey Point overlooks forests of horse chestnut and Himalayan oak. Kasauli Mall,Heritage Market, Sunset PointClockTower, and Baba Balak Nath Mandir",
     image: "/api/placeholder/800/500?text=Sunset+Viewpoint",
-    distance: "3 km",
+    distance: "15 km",
     duration: "1-2 hours",
+  },
+  {
+    name: "Reva Waterfall",
+    description:
+      "Reva Waterfall is a beautiful waterfall located in the Solan district of Himachal Pradesh. The waterfall is located at a distance of 7 km from the main city of Solan. The waterfall is a perfect place to relax and enjoy the beauty of nature. The waterfall is surrounded by lush green forests and offers a serene environment to the visitors.",
+    image: "/api/placeholder/800/500?text=Waterfall",
+    distance: "7 km",
+    duration: "1-2 hours",
+  },
+  {
+    name: "Shimla",
+    description:
+      "Shimla is the capital of the northern Indian state of Himachal Pradesh, in the Himalayan foothills. Once the summer capital of British India, it remains the terminus of the narrow-gauge Kalka-Shimla Railway, completed in 1903. It’s also known for the handicraft shops that line The Mall, a pedestrian avenue, as well as the Lakkar Bazaar, a market specializing in wooden toys and crafts.",
+    image: "/api/placeholder/800/500?text=Shimla",
+    distance: "45 km",
+    duration: "Full day",
+  },
+  {
+    name: "Kufri",
+    description:
+      "Kufri is a small hill station in Shimla district of Himachal Pradesh state in India. It is located 20 km from the state capital Shimla on the National Highway No.22. Kufri is a small hill station in Shimla district of Himachal Pradesh state in India. It is located 20 km from the state capital Shimla on the National Highway No.22.",
+    image: "/api/placeholder/800/500?text=Kufri",
+    distance: "50 km",
+    duration: "Full day",
   },
 ];
 

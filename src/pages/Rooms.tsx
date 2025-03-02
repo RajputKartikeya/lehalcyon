@@ -27,7 +27,7 @@ const roomTypes = [
     description:
       "Luxurious comfort with modern amenities and a breathtaking balcony view of the alpine-covered hills. Perfect for a rejuvenating stay.",
     image: "/api/placeholder/800/500?text=Deluxe+Room",
-    price: "$X per night",
+    price: "3000 per night",
     area: "300 sq ft",
     features: ["Mountain View", "Balcony", "King Size Bed", "Work Desk"],
     images: [
@@ -42,7 +42,7 @@ const roomTypes = [
     description:
       "Elevate your stay with our spacious Super Deluxe Room, offering premium amenities and a stunning panoramic view of the Solan hills.",
     image: "/api/placeholder/800/500?text=Super+Deluxe+Room",
-    price: "$Y per night",
+    price: "4500 per night",
     area: "400 sq ft",
     features: [
       "Panoramic View",
@@ -57,26 +57,26 @@ const roomTypes = [
       "/api/placeholder/800/500?text=Super+Deluxe+4",
     ],
   },
-  {
-    name: "Suite",
-    description:
-      "Experience unparalleled luxury in our spacious suite, complete with a separate living area and top-tier amenities for an unforgettable stay.",
-    image: "/api/placeholder/800/500?text=Suite",
-    price: "$Z per night",
-    area: "600 sq ft",
-    features: [
-      "Separate Living Room",
-      "Kitchenette",
-      "King Size Bed",
-      "Jacuzzi",
-    ],
-    images: [
-      "/api/placeholder/800/500?text=Suite+1",
-      "/api/placeholder/800/500?text=Suite+2",
-      "/api/placeholder/800/500?text=Suite+3",
-      "/api/placeholder/800/500?text=Suite+4",
-    ],
-  },
+  // {
+  //   name: "Suite",
+  //   description:
+  //     "Experience unparalleled luxury in our spacious suite, complete with a separate living area and top-tier amenities for an unforgettable stay.",
+  //   image: "/api/placeholder/800/500?text=Suite",
+  //   price: "$Z per night",
+  //   area: "600 sq ft",
+  //   features: [
+  //     "Separate Living Room",
+  //     "Kitchenette",
+  //     "King Size Bed",
+  //     "Jacuzzi",
+  //   ],
+  //   images: [
+  //     "/api/placeholder/800/500?text=Suite+1",
+  //     "/api/placeholder/800/500?text=Suite+2",
+  //     "/api/placeholder/800/500?text=Suite+3",
+  //     "/api/placeholder/800/500?text=Suite+4",
+  //   ],
+  // },
 ];
 
 const amenities = [

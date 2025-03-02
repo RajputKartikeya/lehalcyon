@@ -19,7 +19,7 @@ import {
 const Contact: React.FC = () => {
   // Replace with your actual Google Maps embed URL
   const googleMapsEmbedUrl =
-    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12345.67890!2d-123.1234567!3d49.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zJzIwLjQiTiAxMjPCsDA3JzI0LjQiVw!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus";
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.4240376845096!2d77.0520816!3d30.902769499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f87e54f998cbb%3A0xb7644bf74c6b8c81!2sHotel%20Le%20Halcyon!5e0!3m2!1sen!2sin!4v1740819625881!5m2!1sen!2sin";
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:info@mountainviewhotel.com?subject=${encodeURIComponent(
+    const mailtoLink = `mailto:lehalcyon2021@gmail.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\n${message}`
@@ -37,14 +37,22 @@ const Contact: React.FC = () => {
   };
 
   const socialButtons = [
-    { icon: Globe, label: "Google Page", link: "https://www.google.com" },
-    { icon: Instagram, label: "Instagram", link: "https://www.instagram.com" },
-    { icon: Facebook, label: "Facebook", link: "https://www.facebook.com" },
+    { icon: Globe, label: "Google Page", link: "https://g.co/kgs/5RoayMX" },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      link: "https://www.instagram.com/hotellehalcyon/",
+    },
+    {
+      icon: Facebook,
+      label: "Facebook",
+      link: "https://www.facebook.com/hotellehalcyon",
+    },
     { icon: Twitter, label: "Twitter", link: "https://www.twitter.com" },
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      link: "https://wa.me/yourphonenumber",
+      link: "https://wa.me/9667647948",
     },
   ];
 
@@ -119,21 +127,34 @@ const Contact: React.FC = () => {
                   Contact Information
                 </h2>
                 <div className="space-y-4">
-                  <div className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-3 text-primary" />
-                    <span>123 Mountain View Road, Scenic City, SC 12345</span>
+                  <div className="flex items-start">
+                    <div className="flex-shrink-0 w-8 pt-1">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <span className="flex-1">
+                      Hotel Le Halcyon, Koron Kenthri Road, near Kheel Mor,
+                      Kumarhatti, Himachal Pradesh 173229
+                    </span>
                   </div>
                   <div className="flex items-center">
-                    <Phone className="h-5 w-5 mr-3 text-primary" />
-                    <span>+1 (123) 456-7890</span>
+                    <div className="flex-shrink-0 w-8">
+                      <Phone className="h-5 w-5 text-primary" />
+                    </div>
+                    <span className="flex-1">
+                      +91 9667647948 | +91 7827041770
+                    </span>
                   </div>
                   <div className="flex items-center">
-                    <Mail className="h-5 w-5 mr-3 text-primary" />
-                    <span>info@mountainviewhotel.com</span>
+                    <div className="flex-shrink-0 w-8">
+                      <Mail className="h-5 w-5 text-primary" />
+                    </div>
+                    <span className="flex-1">lehalcyon2021@gmail.com</span>
                   </div>
                   <div className="flex items-center">
-                    <Clock className="h-5 w-5 mr-3 text-primary" />
-                    <span>Reception open 24/7</span>
+                    <div className="flex-shrink-0 w-8">
+                      <Clock className="h-5 w-5 text-primary" />
+                    </div>
+                    <span className="flex-1">Reception open 24/7</span>
                   </div>
                 </div>
               </CardContent>
