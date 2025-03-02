@@ -2,19 +2,23 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { CloudinaryImage } from "@/utils/cloudinaryImage";
 
 const About: React.FC = () => {
   return (
     <div className="bg-background min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center">
-        <img
-          src="/api/placeholder/1920/1080?text=Hotel+Le+Halcyon"
-          alt="Hotel Le Halcyon"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <CloudinaryImage
+            imagePath="about/5_y1ebfz"
+            alt="Hotel Le Halcyon"
+            className="w-full h-full object-cover"
+            priority={true}
+          />
+        </div>
         <div className="absolute inset-0 bg-black bg-opacity-50" />
-        <div className="relative z-10 text-center text-white">
+        <div className="relative z-10 text-center text-white px-4">
           <motion.h1
             className="text-5xl md:text-7xl font-bold mb-4"
             initial={{ opacity: 0, y: -50 }}
@@ -54,13 +58,23 @@ const About: React.FC = () => {
                 hotel offers a refreshing retreat that fills you with a sense of
                 peace and calm.
               </p>
-              <Button>Book Your Stay</Button>
+              <Button
+                onClick={() =>
+                  window.open(
+                    "https://bookings.asiatech.in/?page=4342&type=website",
+                    "_blank"
+                  )
+                }
+              >
+                Book Your Stay
+              </Button>
             </div>
-            <div>
-              <img
-                src="/api/placeholder/800/600?text=Hotel+Exterior"
+            <div className="rounded-lg shadow-lg">
+              <CloudinaryImage
+                imagePath="about/gallery-19_tgwot4"
                 alt="Hotel Exterior"
                 className="rounded-lg shadow-lg"
+                priority={true}
               />
             </div>
           </motion.div>

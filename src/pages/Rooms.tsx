@@ -14,11 +14,11 @@ import {
   Sandwich,
   Users,
   Maximize,
-  DollarSign,
   Mountain,
   Wifi,
   ChevronDown,
   ChevronUp,
+  IndianRupee,
 } from "lucide-react";
 import { CloudinaryImage } from "@/utils/cloudinaryImage";
 
@@ -26,16 +26,21 @@ const roomTypes = [
   {
     name: "Deluxe Room",
     description: "Luxurious comfort with modern amenities...",
-    image: "rooms/deluxeroom",
+    image: "rooms/deluxe/1_u0m9ez",
     price: "3000 per night",
     area: "300 sq ft",
     features: ["Mountain View", "Balcony", "King Size Bed", "Work Desk"],
-    images: ["", "rooms/deluxeroom1", "rooms/dbathroom", "rooms/deluxeroom2"],
+    images: [
+      "",
+      "rooms/deluxe/2_sl7crf",
+      "rooms/deluxe/5_j961ms",
+      "rooms/deluxeroom2",
+    ],
   },
   {
     name: "Super Deluxe Room",
     description: "Elevate your stay with our spacious...",
-    image: "rooms/sdeluxeroom",
+    image: "rooms/super-deluxe/3_laurce",
     price: "4500 per night",
     area: "400 sq ft",
     features: [
@@ -46,8 +51,8 @@ const roomTypes = [
     ],
     images: [
       "",
-      "rooms/sdeluxeroom2",
-      "rooms/spdbathroom",
+      "rooms/super-deluxe/4_dnelwg",
+      "rooms/super-deluxe/5_y0vo2u",
       "rooms/sdeluxeroom3",
     ],
   },
@@ -140,7 +145,7 @@ const Rooms: React.FC = () => {
                         <span>{room.area}</span>
                       </div>
                       <div className="flex items-center">
-                        <DollarSign className="h-4 w-4 mr-2 text-primary" />
+                        <IndianRupee className="h-4 w-4 mr-2 text-primary" />
                         <span className="text-lg font-bold">{room.price}</span>
                       </div>
                     </div>
@@ -221,6 +226,88 @@ const Rooms: React.FC = () => {
               </CardContent>
             </Card>
           ))}
+        </motion.div>
+
+        <motion.div
+          className="bg-secondary/10 rounded-lg p-8 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <h2 className="text-2xl font-bold text-center mb-6">
+            Additional Charges & Policies
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">
+                  Extra Person Charges
+                </h3>
+                <ul className="space-y-3">
+                  <li className="flex justify-between">
+                    <span>Extra Bed charge</span>
+                    <span className="font-medium">₹1250</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Extra Child Charge</span>
+                    <span className="font-medium">Free up to 7 years old</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="text-xl font-semibold mb-4">
+                  Booking & Cancellation Policy
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-medium mb-2">Cancellation:</h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      <li>
+                        Full refund for cancellations 7+ days before arrival
+                      </li>
+                      <li>
+                        Cancellations within 7 days or no-shows: full charge
+                      </li>
+                      <li>
+                        Hotel may assist with alternate accommodations if unable
+                        to honor reservation
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium mb-2">
+                      Group Bookings (3+ rooms):
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      <li>Changes/cancellations: 7+ days in advance</li>
+                      <li>15+ days before check-in: No charge</li>
+                      <li>7-14 days before check-in: 50% charge</li>
+                      <li>Less than 7 days before check-in: 100% charge</li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium mb-2">
+                      Non-refundable Periods:
+                    </h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm">
+                      <li>Long weekends, festivals, sold-out dates</li>
+                      <li>Dec 20 - Jan 2 (blackout period)</li>
+                      <li>
+                        Major holidays (Holi, Eid, Diwali, Christmas, New
+                        Year's)
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </motion.div>
 
         <div className="mt-16 text-center">

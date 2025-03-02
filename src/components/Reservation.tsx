@@ -98,6 +98,12 @@ const Reservation: React.FC = () => {
           <Button
             type="submit"
             className="h-14 px-8 hover:scale-105 bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl text-base font-semibold whitespace-nowrap transition-all duration-200 hover:shadow-lg w-full md:w-auto"
+            onClick={() =>
+              window.open(
+                "https://bookings.asiatech.in/?page=4342&type=website",
+                "_blank"
+              )
+            }
           >
             Check Availability
           </Button>

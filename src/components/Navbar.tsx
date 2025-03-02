@@ -84,7 +84,12 @@ const Navbar: React.FC = () => {
                   <Button
                     size="sm"
                     className="rounded-full hover:bg-slate-100 border-yellow-500"
-                    onClick={scrollToTop}
+                    onClick={() =>
+                      window.open(
+                        "https://bookings.asiatech.in/?page=4342&type=website",
+                        "_blank"
+                      )
+                    }
                   >
                     Book Now
                   </Button>
@@ -145,10 +150,12 @@ const Navbar: React.FC = () => {
                       <Button
                         size="lg"
                         className="rounded-full text-2xl font-medium"
-                        onClick={() => {
-                          toggleMenu();
-                          scrollToTop();
-                        }}
+                        onClick={() =>
+                          window.open(
+                            "https://bookings.asiatech.in/?page=4342&type=website",
+                            "_blank"
+                          )
+                        }
                       >
                         {item}
                       </Button>

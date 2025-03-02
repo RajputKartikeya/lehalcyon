@@ -12,8 +12,11 @@ const galleryItems = [
   { id: 5, imagePath: "gallary/1_eysrmn", alt: "" },
   { id: 6, imagePath: "gallary/8_ei5shb", alt: "" },
   { id: 7, imagePath: "gallary/3_gzt3ko", alt: "" },
-  { id: 8, imagePath: "gallery/conference", alt: "" },
-  { id: 9, imagePath: "gallery/garden", alt: "" },
+  { id: 8, imagePath: "gallary/2_ij1a1h", alt: "" },
+  { id: 9, imagePath: "gallary/09_lqn9r0", alt: "" },
+  { id: 10, imagePath: "gallary/2_imitml", alt: "" },
+  { id: 11, imagePath: "gallary/012_uc8qbf", alt: "" },
+  { id: 12, imagePath: "gallary/4_c2itfa", alt: "" },
 ];
 
 const Gallery: React.FC = () => {

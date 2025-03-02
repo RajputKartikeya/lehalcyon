@@ -2,10 +2,10 @@ import React from "react";
 import {
   Facebook,
   Instagram,
-  Twitter,
   Mail,
   Phone,
   MapPin,
+  Youtube,
 } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 
@@ -64,11 +64,11 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center text-sm">
                 <Phone className="h-5 w-5 mr-2 text-primary flex-shrink-0" />
-                <span>+91 1234567890</span>
+                <span>+91 9667647948 | +91 7827041770</span>
               </li>
               <li className="flex items-center text-sm">
                 <Mail className="h-5 w-5 mr-2 text-primary flex-shrink-0" />
-                <span className="break-all">info@hotellehalcyon.com</span>
+                <span className="break-all">lehalcyon2021@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -78,22 +78,22 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex items-center justify-between lg:justify-start lg:space-x-4">
               <a
-                href="#"
+                href="https://www.facebook.com/hotellehalcyon"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/hotellehalcyon/"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.youtube.com/@hotellehalcyon2391"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                <Twitter className="h-5 w-5" />
+                <Youtube className="h-5 w-5" />
               </a>
             </div>
           </div>

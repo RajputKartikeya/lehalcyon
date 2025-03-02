@@ -11,9 +11,9 @@ import {
   Clock,
   Facebook,
   Instagram,
-  Twitter,
   Globe,
   MessageCircle,
+  Youtube,
 } from "lucide-react";
 
 const Contact: React.FC = () => {
@@ -48,7 +48,11 @@ const Contact: React.FC = () => {
       label: "Facebook",
       link: "https://www.facebook.com/hotellehalcyon",
     },
-    { icon: Twitter, label: "Twitter", link: "https://www.twitter.com" },
+    {
+      icon: Youtube,
+      label: "YouTube",
+      link: "https://www.youtube.com/@hotellehalcyon2391",
+    },
     {
       icon: MessageCircle,
       label: "WhatsApp",
