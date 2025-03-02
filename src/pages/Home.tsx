@@ -20,40 +20,15 @@ import {
 } from "lucide-react";
 import Reservation from "@/components/Reservation";
 import { CloudinaryImage } from "@/utils/cloudinaryImage";
+import TestimonialsCarousel, {
+  RawTestimonial,
+} from "@/components/TestimonialsCarousel";
 import { testimonials as initialTestimonials } from "@/lib/reviews";
-
 const carouselImages = ["home/hero1", "home/hero2", "home/hero3", "home/hero4"];
-const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
-  <div className="min-w-[300px] max-w-[400px] h-56 bg-white rounded-lg shadow-lg p-6 flex flex-col">
-    <div className="flex items-center mb-4">
-      <div className="flex items-center">
-        {[...Array(5)].map((_, i) => (
-          <Star
-            key={i}
-            className={`h-5 w-5 ${
-              i < testimonial.rating
-                ? "text-yellow-400 fill-yellow-400"
-                : "text-gray-300"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-    <p className="text-gray-600 mb-4 line-clamp-4 break-words">
-      "{testimonial.text}"
-    </p>
-    <div className="flex items-center mt-auto">
-      <span className="font-semibold">{testimonial.author}</span>
-      <span className="mx-2">•</span>
-      <span className="text-sm text-gray-500">{testimonial.date}</span>
-    </div>
-  </div>
-);
+
 const Home: React.FC = () => {
+  const [testimonials] = useState<RawTestimonial[]>(initialTestimonials ?? []);
   const [currentImage, setCurrentImage] = useState(0);
-
-  const [testimonials] = useState(initialTestimonials ?? []);
-
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % carouselImages.length);
@@ -414,40 +389,9 @@ const Home: React.FC = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 px-4 md:px-8 bg-background/95">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Guest Reviews
-          </h2>
-          <div className="relative overflow-hidden">
-            <motion.div
-              className="flex gap-8"
-              animate={{ x: ["0%", "-100%"] }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            >
-              {[...testimonials, ...testimonials].map((testimonial, index) => (
-                <TestimonialCard key={index} testimonial={testimonial} />
-              ))}
-            </motion.div>
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
-          </div>
-          <div className="text-center mt-8">
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() =>
-                window.open(
-                  "https://www.tripadvisor.in/Hotel_Review-g26471761-d23916676-Reviews-Hotel_Le_Halcyon_Kasauli-Shai_Solan_District_Himachal_Pradesh.html",
-                  "_blank"
-                )
-              }
-            >
-              Read More Reviews
-            </Button>
-          </div>
-        </div>
-      </section>
+      <div>
+        <TestimonialsCarousel testimonials={testimonials} />
+      </div>
       {/* Call to Action Section */}
       <section>
         <motion.section
