@@ -20,28 +20,22 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
+import { CloudinaryImage } from "@/utils/cloudinaryImage";
 
 const roomTypes = [
   {
     name: "Deluxe Room",
-    description:
-      "Luxurious comfort with modern amenities and a breathtaking balcony view of the alpine-covered hills. Perfect for a rejuvenating stay.",
-    image: "/api/placeholder/800/500?text=Deluxe+Room",
+    description: "Luxurious comfort with modern amenities...",
+    image: "rooms/deluxeroom",
     price: "3000 per night",
     area: "300 sq ft",
     features: ["Mountain View", "Balcony", "King Size Bed", "Work Desk"],
-    images: [
-      "/api/placeholder/800/500?text=Deluxe+Room+1",
-      "/api/placeholder/800/500?text=Deluxe+Room+2",
-      "/api/placeholder/800/500?text=Deluxe+Room+3",
-      "/api/placeholder/800/500?text=Deluxe+Room+4",
-    ],
+    images: ["", "rooms/deluxeroom1", "rooms/dbathroom", "rooms/deluxeroom2"],
   },
   {
     name: "Super Deluxe Room",
-    description:
-      "Elevate your stay with our spacious Super Deluxe Room, offering premium amenities and a stunning panoramic view of the Solan hills.",
-    image: "/api/placeholder/800/500?text=Super+Deluxe+Room",
+    description: "Elevate your stay with our spacious...",
+    image: "rooms/sdeluxeroom",
     price: "4500 per night",
     area: "400 sq ft",
     features: [
@@ -51,32 +45,12 @@ const roomTypes = [
       "Seating Area",
     ],
     images: [
-      "/api/placeholder/800/500?text=Super+Deluxe+1",
-      "/api/placeholder/800/500?text=Super+Deluxe+2",
-      "/api/placeholder/800/500?text=Super+Deluxe+3",
-      "/api/placeholder/800/500?text=Super+Deluxe+4",
+      "",
+      "rooms/sdeluxeroom2",
+      "rooms/spdbathroom",
+      "rooms/sdeluxeroom3",
     ],
   },
-  // {
-  //   name: "Suite",
-  //   description:
-  //     "Experience unparalleled luxury in our spacious suite, complete with a separate living area and top-tier amenities for an unforgettable stay.",
-  //   image: "/api/placeholder/800/500?text=Suite",
-  //   price: "$Z per night",
-  //   area: "600 sq ft",
-  //   features: [
-  //     "Separate Living Room",
-  //     "Kitchenette",
-  //     "King Size Bed",
-  //     "Jacuzzi",
-  //   ],
-  //   images: [
-  //     "/api/placeholder/800/500?text=Suite+1",
-  //     "/api/placeholder/800/500?text=Suite+2",
-  //     "/api/placeholder/800/500?text=Suite+3",
-  //     "/api/placeholder/800/500?text=Suite+4",
-  //   ],
-  // },
 ];
 
 const amenities = [
@@ -131,11 +105,11 @@ const Rooms: React.FC = () => {
               <Card className="overflow-hidden">
                 <div className="flex flex-col md:flex-row">
                   <div className="md:w-1/3 relative">
-                    <img
-                      src={room.image}
+                    <CloudinaryImage
+                      imagePath={room.image}
                       alt={room.name}
-                      className="w-full h-full object-cover"
-                      style={{ minHeight: "250px" }}
+                      className="w-full h-full object-cover absolute inset-0"
+                      priority={index < 2} // Load first two images immediately
                     />
                   </div>
                   <div className="md:w-2/3 p-6">
@@ -195,11 +169,12 @@ const Rooms: React.FC = () => {
                       </h3>
                       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
                         {room.images.slice(1).map((image, index) => (
-                          <img
+                          <CloudinaryImage
                             key={index}
-                            src={image}
+                            imagePath={image}
                             alt={`${room.name} view ${index + 2}`}
-                            className="rounded-lg shadow-md"
+                            className="rounded-lg shadow-md h-48 object-cover"
+                            priority={false}
                           />
                         ))}
                       </div>
